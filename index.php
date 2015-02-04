@@ -33,7 +33,7 @@ Flight::set('meta_description', 'WhatsMyIPSite tells visitors what IP address th
 Flight::set('maptype', 'google');
 // Google Maps Embed API key
 // https://developers.google.com/maps/documentation/embed/guide#api_key
-Flight::set('google_embed_key', 'AIzaSyAuKa064bc-MtrvRVPSSkfdvw_8dC8aT_4');
+// Flight::set('google_embed_key', 'YOUR_GOOGLE_MAP_EMBED_KEY');
 // Google Analytics - replace UA-XXXXX-X with your site id
 //Flight::set('google_analytics_site_id', 'UA-XXXXX-X');
 
