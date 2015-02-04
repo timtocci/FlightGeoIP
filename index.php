@@ -30,7 +30,7 @@ Flight::set('js', false);
 Flight::set('title_prefix', 'WhatsMyIPSite');
 Flight::set('meta_description', 'WhatsMyIPSite tells visitors what IP address they are making requests from.');
 // set default maptype here (google, here, or wikimapia)
-Flight::set('maptype', 'google');
+Flight::set('maptype', 'here');
 // Google Maps Embed API key
 // https://developers.google.com/maps/documentation/embed/guide#api_key
 // Flight::set('google_embed_key', 'YOUR_GOOGLE_MAP_EMBED_KEY');
@@ -107,6 +107,7 @@ Flight::map('checkIP', function($ip){
     // query db for ip first
     $db = Flight::db();
 	// If localhost set a real IP
+	// live hosting should erase this below!
 	if($ip = '::1'){
 		$ip = '24.105.250.46';
 	}
