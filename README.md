@@ -4,4 +4,4 @@
 
 See accompanying blog post here:
 
-[http://timothytocci.com/2015/02/03/a-whatsmyip-geoip-map-site-with-flightphp/](http://timothytocci.com/2015/02/03/a-whatsmyip-geoip-map-site-with-flightphp/)
+http://timothytocci.com/2015/02/03/a-whatsmyip-geoip-map-site-with-flightphp/
