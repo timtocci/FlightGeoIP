@@ -75,6 +75,7 @@ Flight::register('db', 'PDO', array('sqlite:data/flightgeoip.sqlite3'), function
  * @param [string] $filepath - path to the static file
  */
 Flight::map('getStaticFile', function($req_path){
+	$req_path = parse_url($req_path, PHP_URL_PATH);
     $filepath = Flight::get('flight.static.path') . $req_path;
 	// sometimes relative to root not folder
 	if(!realpath($filepath)){
