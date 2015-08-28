@@ -109,7 +109,7 @@ Flight::map('checkIP', function($ip){
     $db = Flight::db();
 	// If localhost set a real IP
 	// live hosting should erase this below!
-	if($ip = '::1'){
+	if($ip === '::1'){
 		$ip = '24.105.250.46';
 	}
     $dbquery ="SELECT * FROM geo WHERE ip IS '" . $ip . "'";
