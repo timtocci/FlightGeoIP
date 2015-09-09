@@ -251,7 +251,6 @@ Flight::route('GET /api/ip/@ip', function($ip){
 		'regionCode' => Flight::get('regionCode'),
 		'regionName' => Flight::get('regionName')
 	), 'cb');
-
 });
 
 // place any other dynamic routes here
