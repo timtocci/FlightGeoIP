@@ -234,6 +234,26 @@ Flight::route('GET /', function(){
     Flight::render('default.php', $templatedata);
 });
 
+// api to look up an ip (returns jsonp)
+// http://somedomain.com/api/ip/24.105.250.46?cb=callback
+Flight::route('GET /api/ip/@ip', function($ip){
+	Flight::checkIP($ip);
+	Flight::jsonp(array(
+		'ip' => Flight::get('ip'),
+		'city' => Flight::get('city'),
+		'region' => Flight::get('region'),
+		'areaCode' => Flight::get('areaCode'),
+		'dmaCode' => Flight::get('dmaCode'),
+		'countryCode' => Flight::get('countryCode'),
+		'continentCode' => Flight::get('continentCode'),
+		'latitude' => Flight::get('latitude'),
+		'longitude' => Flight::get('longitude'),
+		'regionCode' => Flight::get('regionCode'),
+		'regionName' => Flight::get('regionName')
+	), 'cb');
+
+});
+
 // place any other dynamic routes here
 
 // everything else (static folder)
