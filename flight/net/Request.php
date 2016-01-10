@@ -129,7 +129,7 @@ class Request {
         // Default properties
         if (empty($config)) {
             $config = array(
-                'url' => self::getVar('REQUEST_URI', '/'),
+                'url' => str_replace('@', '%40', self::getVar('REQUEST_URI', '/')),
                 'base' => str_replace(array('\\',' '), array('/','%20'), dirname(self::getVar('SCRIPT_NAME'))),
                 'method' => self::getMethod(),
                 'referrer' => self::getVar('HTTP_REFERER'),
@@ -205,7 +205,7 @@ class Request {
 
         $method = self::getMethod();
 
-        if ($method == 'POST' || $method == 'PUT') {
+        if ($method == 'POST' || $method == 'PUT' || $method == 'PATCH') {
             $body = file_get_contents('php://input');
         }
 
@@ -218,14 +218,16 @@ class Request {
      * @return string
      */
     public static function getMethod() {
+        $method = self::getVar('REQUEST_METHOD', 'GET');
+
         if (isset($_SERVER['HTTP_X_HTTP_METHOD_OVERRIDE'])) {
-            return $_SERVER['HTTP_X_HTTP_METHOD_OVERRIDE'];
+            $method = $_SERVER['HTTP_X_HTTP_METHOD_OVERRIDE'];
         }
         elseif (isset($_REQUEST['_method'])) {
-            return $_REQUEST['_method'];
+            $method = $_REQUEST['_method'];
         }
 
-        return self::getVar('REQUEST_METHOD', 'GET');
+        return strtoupper($method);
     }
 
     /**
